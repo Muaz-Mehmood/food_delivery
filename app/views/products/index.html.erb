@@ -1,0 +1,10 @@
+<h1>All Products List</h1>
+
+<% @product.each do |product| %>
+    <h2><%= product.name %></h2>
+    <% if product.image.attached? %>
+        <%= image_tag(product.image, style: "width: 100px; height: 100px;") %>
+    <% end %>
+    <p><%= truncate(product.description, :length => 35) %></p>
+    <%= link_to 'Detail', product%>
+<% end %>

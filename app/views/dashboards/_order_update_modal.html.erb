@@ -1,0 +1,25 @@
+<div class="modal fade" id="updateStatusModal-<%=order_id%>" tabindex="-1" aria-labelledby="updateStatusModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="updateStatusModalLabel">KHAO PIYO</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <div class="modal-body">
+                <%= form_with(model: @order, url: update_order_status_path, method: :post) do |f| %>
+                  <div class="mb-3">
+                    <%= f.label :status, class: "form-label" %>
+                    <%= f.select :status, ['pending', 'ready', 'delivered'], { prompt: 'Select Status' }, class: "form-select" %>
+                  </div>
+                  <input type="hidden" value="<%= order_id %>" name="order[order_id]">
+                  <div class="modal-footer justify-content-between">
+                    <%= link_to 'Close', '#', "data-bs-dismiss" => "modal", class: "btn btn-secondary" %>
+                    <%= f.submit 'Update', class: "btn btn-dark border-0" %>
+                  </div>
+                <% end %>
+              </div>
+            </div>
+          </div>
+      </div>
+  </div>

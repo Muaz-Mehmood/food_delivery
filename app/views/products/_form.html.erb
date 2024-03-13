@@ -1,10 +1,27 @@
-<%= form_for @product do |f| %>
-    <%= f.label :name %><br>
-    <%= f.text_field :name %><br>
-    <%= f.label :description %><br>
-    <%= f.text_area :description %><br>
-    <%= f.file_field :image %><br>
-    <%= f.label :price %><br>
-    <%= f.text_field :price %><br>
-    <%= f.submit %>
-<% end %>
+<div class="w-75 mx-auto mb-5">
+  <div class="form-bg w-50 p-5 m-auto rounded-3">
+      <%= form_for @product, class: "form w-50" do |f| %>
+        <div class="form-group">
+          <%= f.label :name %><br>
+          <%= f.text_field :name, class: "form-control" %><br>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :description %><br>
+          <%= f.text_area :description, class: "form-control" %><br>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :image %><br>
+          <%= f.file_field :image, class: "form-control" %><br>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :price %><br>
+          <%= f.text_field :price, class: "form-control" %><br>
+        </div>
+
+        <%= f.submit "Submit", class: "form-btn w-100 btn btn-dark border-0" %>
+      <% end %>
+  </div>
+</div>

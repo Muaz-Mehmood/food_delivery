@@ -1,3 +1,13 @@
 // Place all the styles related to the carts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+$nav-color: #003753c7;
+$grey-bg: #eeeeee;
+.table-head, .check-btn{
+    background: $nav-color !important;
+}
+.c-prod{
+    background: $grey-bg !important;
+    color: $nav-color !important;
+}

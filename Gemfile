@@ -57,5 +57,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem "devise", "~> 4.9"
 
-gem 'net-protocol', '~> 0.2.2'
+gem 'bootstrap', '~> 5.0'
 
+gem 'jquery-rails'
+gem 'popper_js', '>= 2.0.7'

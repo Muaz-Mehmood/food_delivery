@@ -1,6 +1,6 @@
 class ProductsController < ApplicationController
-
-    before_action :find_product, only: [:show, :edit, :update]
+    before_action :authenticate_user!, except: [:index, :show]
+    before_action :find_product, only: [:show, :edit, :update, :destroy]
     before_action :restrict_customer, except: [:index, :show]
 
     def index
@@ -18,6 +18,7 @@ class ProductsController < ApplicationController
         end
     end
     def show
+        @cart_item = CartItem.new
     end
     def edit
     end
@@ -29,8 +30,6 @@ class ProductsController < ApplicationController
         end
     end
     def destroy
-        @product = Product.find_by_id(params[:id])
-        
         @product.destroy if @product
         redirect_to root_path
     end
@@ -50,4 +49,10 @@ class ProductsController < ApplicationController
             redirect_to root_path
         end
     end
+    
+    def authenticate_user!
+        unless current_user && user_signed_in?
+          redirect_to new_user_session_path, alert: 'You need to sign in or sign up before continuing.'
+        end
+      end
 end

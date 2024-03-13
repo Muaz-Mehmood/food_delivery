@@ -1,0 +1,33 @@
+<%= link_to 'Back', products_path, class:"btn mx-3  b-text fs-4 text-decoration-underline" %>
+<div class="container">
+<% if @cart_items.any? %>
+<h1 class="heading text-center mt-3 mb-5">Your Shopping Cart</h1>
+  <table class="table table-bordered text-center">
+    <thead class="thead">
+      <tr>
+        <th class="table-head text-light">Product</th>
+        <th class="table-head text-light">Quantity</th>
+        <th class="table-head text-light">Price</th>
+        <th class="table-head text-light">Total</th>
+        <th class="table-head text-light">Remove</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @cart_items.each do |cart_item| %>
+        <tr>
+          <td class="c-prod"><%= cart_item.product.name %></td>
+          <td class="c-prod"><%= cart_item.quantity %></td>
+          <td class="c-prod"><%= number_to_currency(cart_item.product.price) %></td>
+          <td class="c-prod"><%= number_to_currency(cart_item.quantity * cart_item.product.price) %></td>
+          <td class="c-prod"><%= button_to "Remove", remove_from_cart_path(cart_item), method: :delete, class: 'btn btn-danger btn-sm' %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <p class="p-price">Total: <%= number_to_currency(@cart_items.sum { |item| item.quantity * item.product.price }) %></p>
+  <%= button_to "Checkout", checkout_path, class: "check-btn btn btn-dark border-0" %>
+<% else %>
+  <h1 class="heading text-center my-5">Your cart is empty.</h1>
+<% end %>
+</div>

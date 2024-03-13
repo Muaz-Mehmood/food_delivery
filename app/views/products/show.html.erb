@@ -1,15 +1,51 @@
-<% if current_user && current_user.admin? %>
-    <%= link_to 'Edit', edit_product_path %>
-    <%= button_to 'Delete', product_path(@product), :method => :delete, data: {confirm: "Are you sure..."} %>
-<% end %>
+<%= link_to 'Back', products_path, class:"btn mx-3  b-text fs-4 text-decoration-underline" %>
+<div class="container">
+    <div class="row my-4">
+        <div class="col p-3">
+            <h1 class="p-name"><%= @product.name %></h1>
+            <div class="w-75 m-auto">
+                <%= image_tag(@product.image, class: "w-75 my-4 rounded-3") %><br>
+                <h5 class="p-price w-75"><%= number_to_currency(@product.price) %></h5>
+                <%# <% if current_user && current_user.customer? %>
+                  <%= form_with(model: @cart_item, url: add_to_cart_path(product_id: @product.id), local: true, class: "w-75") do |f| %>
+                    <%= f.hidden_field :product_id, value: @product.id %>
+                      <%= f.number_field :quantity, value: 1, min: 1, class: "qty form-control my-2" %>
+                      <%= f.submit "Add to cart", class: " add-crt-btn btn btn-dark border-0 form-control", "data-bs-toggle" => "modal", "data-bs-target" => "#addToCartModal" %>
+                  <% end %>
+                <%# <% end %> 
 
-<h1><%= @product.name %></h1>
-<%= image_tag(@product.image, style: "width: 100px; height: 100px;") %>
-<div>
-    <%= @product.description %>
-</div><br>
-<strong>
-    <%= @product.price %>
-</strong><br>
+                <div class="modal fade" id="addToCartModal" tabindex="-1" aria-labelledby="addToCartModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h5 class="modal-title" id="addToCartModalLabel">KHAO PIYO</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                          </div>
+                          <div class="modal-body">
+                            Item is successfully added in cart... 
+                          </div>
+                          <div class="modal-footer justify-content-between">
+                            <%= link_to 'More Products', products_path, class: "btn btn-secondary" %>
+                            <%= link_to 'Cart', cart_path, class: "form-btn btn btn-dark border-0" %>
+                          </div>
+                        </div>
+                    </div>
+                </div>
 
-<%= link_to 'Back', products_path %>
+                  <div class="d-flex justify-content-between w-75 mt-5 mb-2">
+                    <% if current_user && current_user.admin? %>
+                            <%= link_to 'Edit Product', edit_product_path, class:"edit-btn btn btn-outline-primary" %>
+                            <%= button_to 'Delete Product', product_path(@product), :method => :delete, class:"del-btn btn btn-danger" %>
+                    <% end %>
+                  </div>
+            </div>
+        </div>
+
+        <div class="description col p-4 rounded-3">
+            <div class="desc-content">
+                <h2>Description</h2>
+                <p><%= @product.description %></p>
+            </div><br>
+        </div>
+    </div>
+</div>

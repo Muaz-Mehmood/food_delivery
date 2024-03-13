@@ -1,0 +1,34 @@
+// Place all the styles related to the custom controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+$nav-color: #003753c7;
+$grey-bg: #eeeeee;
+.icons, .b-text{
+    color: $nav-color !important;
+}
+.m-nav{
+    z-index: 2 !important;
+    background: $grey-bg;
+    border-bottom: 2px solid $nav-color ;
+    position: sticky !important;
+    top: 0;
+    font-size: 15px !important;
+}
+.m-nav .navbar-brand{
+    font-weight: bold !important;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+.m-nav .nav-link, .m-nav .navbar-brand{
+    color: $nav-color !important;
+}
+.m-nav:hover .nav-link, .bg-none{
+    background: none !important;
+}
+.logout-btn{
+    width: 100px;
+    background: $nav-color !important;
+    text-transform: lowercase !important;
+    font-size: 15px !important;
+}

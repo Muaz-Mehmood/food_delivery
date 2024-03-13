@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Admin Dashboard</title>
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css'>
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/font/material-design-icons/Material-Design-Icons.woff'><link rel="stylesheet" href="./style.css">
+  <style>
+    header,
+main {
+  padding-left: 240px;
+}
+@media only screen and (max-width: 992px) {
+  header,
+  main {
+    padding-left: 0;
+  }
+}
+
+#credits li,
+#credits li a {
+  color: white;
+}
+#slide-out{
+  z-index: 0;
+}
+
+#credits li a {
+  font-weight: bold;
+}
+
+.fab-tip {
+  position: fixed;
+  right: 85px;
+  /* padding: 0px 0.5rem; */
+  text-align: right;
+  background-color: #323232;
+  border-radius: 2px;
+  color: #FFF;
+  width: auto;
+}
+  </style>
+
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+
+<body>
+  <ul id="slide-out" class="side-nav fixed z-depth-2 pt-5">
+    <li id="dash_dashboard"><a class="b-text waves-effect mt-5" href="/dashboard"><b>Dashboard</b></a></li>
+    <li id="dash_users"><a class="b-text waves-effect" href="/users_list"><b>Users</b></a></li>
+    <li id="dash_products"><a class="b-text waves-effect" href="/products_list"><b>Products</b></a></li>
+    <li id="dash_orders"><a class="b-text waves-effect" href="/order_list"><b>Orders</b></a></li>
+  </ul>
+
+  <main>
+    <div class="row">
+      <div class="col s6 h-100">
+        <a href="/users_list">
+          <div style="padding: 35px;" align="center" class="card">
+            <div class="row">
+              <div class="left card-title">
+                <b>User Management</b>
+              </div>
+            </div>
+
+            <div class="row w-75">
+                <div style="padding: 30px;" class="grey lighten-3 col w-100 h-100 waves-effect">
+                  <i class="icons text-lighten-1 large material-icons">people</i>
+                  <span class="icons text-lighten-1"><h5>Customer</h5></span>
+                </div>
+            </div>
+          </div>
+        </a>
+      </div>
+
+      <div class="col s6">
+        <a href="/products_list">
+          <div style="padding: 35px;" align="center" class="card">
+            <div class="row">
+              <div class="left card-title">
+                <b>Product Management</b>
+              </div>
+            </div>
+            <div class="row w-75">
+                <div style="padding: 30px;" class="grey lighten-3 col w-100 h-100 waves-effect">
+                  <i class="icons text-lighten-1 large material-icons">store</i>
+                  <span class="icons text-lighten-1"><h5>Product</h5></span>
+                </div>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col s6 ">
+        <a href="/order_list">
+          <div style="padding: 35px;" align="center" class="card">
+            <div class="row">
+              <div class="left card-title">
+                <b>Orders Management</b>
+              </div>
+            </div>
+
+            <div class="row w-75">
+                <div style="padding: 30px;" class="grey lighten-3 col w-100  waves-effect">
+                  <i class="icons text-lighten-1 large material-icons">assignment</i>
+                  <span class="icons text-lighten-1"><h5>Orders</h5></span>
+                </div>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+
+  </main>
+</body>
+</html>
+
+<script src='https://code.jquery.com/jquery-2.2.4.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js'></script><script  src="./script.js"></script>
+
+</body>
+</html>

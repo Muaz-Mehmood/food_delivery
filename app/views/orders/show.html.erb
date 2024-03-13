@@ -1,0 +1,52 @@
+<%= link_to 'Back', products_path, class:"btn mx-3  b-text fs-4 text-decoration-underline" %>
+<h1 class="heading text-center mt-3 mb-5">My Orders</h1>
+<div class="container">
+    <% if current_user %>
+        <% @orders.each do |order| %>
+            <div class="card w-75 m-auto mb-5 shadow-none">
+            <div class="card-header">
+                <table class="table table-borderless text-center">
+                    <thead class="thead">
+                        <tr>
+                            <th class="bg-none b-text">Order ID</th>
+                            <th class="bg-none b-text">Order Date</th>
+                            <th class="bg-none b-text">Total</th>
+                            <th class="bg-none b-text">Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="bg-none b-text"><%= order.id %></td>
+                            <td class="bg-none b-text"><%= order.created_at.strftime("%d-%m-%Y") %></td>
+                            <td class="bg-none b-text"><%= number_to_currency(order.subtotal) %></td>
+                            <td class="bg-none b-text"><%= order.status %></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <ul class="list-group list-group-flush">
+                <% order.order_items.each do |order_item| %>
+                    <li class="list-group-item">
+                        <div class="d-flex b-text">
+                            <div class="w-25">
+                                <% if order_item.product.image.attached? %>
+                                    <%= image_tag(order_item.product.image, style: "width: 80%; height: 100px;",  class: "rounded-3") %>
+                                <% end %>
+                            </div>
+                            <div class="w-50 my-auto text-center">
+                                <h4><%= order_item.product.name %></h4>
+                            </div>
+                            <div class="w-25 my-auto text-center">
+                                <h4><%= order_item.quantity %></h4>
+                            </div>
+                        </div>
+                    </li>
+                <% end %>
+            </ul>
+            </div>
+        <% end %>
+    <% else %>
+        <h1 class="heading text-center my-5">Your Order list is empty</h1>
+    <% end %>
+
+</div>

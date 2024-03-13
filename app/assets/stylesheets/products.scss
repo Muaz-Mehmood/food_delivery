@@ -1,3 +1,68 @@
 // Place all the styles related to the products controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+$nav-color: #003753c7;
+$grey-bg: #eeeeee;
+.cover{
+    color: $nav-color;
+    height: 75vh;
+    background: $grey-bg;
+    text-align: center;
+    font-size: 70px;
+    font-weight: bold;
+}
+.index-head{
+    background: $nav-color;
+    color: $nav-color;
+}
+// .card{
+//     border: $grey-bg outset 2px !important;
+//     box-shadow: 1px 1px 10px;
+// }
+.card-text{
+    text-align: justify;
+}
+.card-title, .p-name, .desc-content h2, .modal-title{
+    color: $nav-color !important;
+}
+.p-price{
+    color: $nav-color;
+    font-weight: bold;
+}
+.qty{
+    background: $grey-bg !important;
+}
+.add-crt-btn{
+    background: $nav-color !important;
+}
+.edit-btn{
+    color: $nav-color !important;
+    border: 1px solid $nav-color !important;
+    padding:5px 30px !important;
+}
+.edit-btn:hover{
+    background: $nav-color !important;
+    color: white !important;
+}
+.desc-content{
+    text-align: justify;
+}
+.description{
+    background: $grey-bg;
+}
+.form-bg{
+    background: $grey-bg;
+    box-shadow: 3px 3px 10px 0px;
+}
+.heading, label{
+    color: $nav-color;
+}
+.form-btn{
+    background: $nav-color !important;
+}
+.form-2-btn{
+    margin-top: 10px;
+    border: 1px solid $nav-color !important;
+    color: $nav-color !important;
+}

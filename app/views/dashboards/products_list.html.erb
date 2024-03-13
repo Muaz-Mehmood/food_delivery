@@ -1,0 +1,28 @@
+<%= link_to 'Back', dashboard_path, class:"btn mx-3  b-text fs-4 text-decoration-underline" %>
+<div class="container">
+<% if @products.any? %>
+<h1 class="heading text-center mt-3 mb-5">All Products</h1>
+  <table class="table table-bordered text-center">
+    <thead class="thead">
+      <tr>
+        <th class="table-head text-light">Product ID</th>
+        <th class="table-head text-light">Name</th>
+        <th class="table-head text-light">Edit</th>
+        <th class="table-head text-light">Remove</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @products.each do |product| %>
+        <tr>
+          <td class="c-prod"><%= product.id %></td>
+          <td class="c-prod"><%= product.name %></td>
+          <td class="c-prod"><%= link_to 'Edit', edit_product_path(product.id), class:"edit-btn btn btn-outline-primary" %></td>
+          <td class="c-prod"><%= button_to 'Remove', product_path(product.id), :method => :delete, class:"del-btn btn btn-danger"%> </td> 
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% else %>
+  <h1 class="heading text-center my-5">No user account exist.</h1>
+<% end %>
+</div>

@@ -1,0 +1,39 @@
+<%= link_to 'Back', dashboard_path, class:"btn mx-3  b-text fs-4 text-decoration-underline" %>
+<h1 class="heading text-center mt-3 mb-5">All Orders List</h1>
+<div class="container">
+<% if @orders.any? %>
+  <table class="table table-bordered text-center">
+    <thead class="thead">
+      <tr>
+        <th class="table-head text-light">Order ID</th>
+        <th class="table-head text-light">Products</th>
+        <th class="table-head text-light">Subtotal</th>
+        <th class="table-head text-light">Status</th>
+        <th class="table-head text-light">Update Status</th>
+        </tr>
+    </thead>
+    <tbody>
+      <% @orders.each do |order| %>
+        <tr>
+            <td class="c-prod"><%= order.id %></td>
+            <td class="c-prod">
+              <% order.order_items.each do |order_item| %>
+                <div class="d-flex justify-content-around">
+                  <p class="w-50"><%= order_item.product.name %></p>
+                  <p><%= order_item.quantity %></p><br>
+                </div>
+              <% end %>
+            </td>
+          <td class="c-prod"><%= number_to_currency(order.subtotal) %></td>
+          <td class="c-prod"><%= order.status %></td>
+          <td class="c-prod"><%= link_to 'update', '#', class: "edit-btn btn btn-outline-primary", "data-bs-toggle" => "modal", "data-bs-target" => "#updateStatusModal-#{order.id}" %></td>
+          <%= render 'order_update_modal', {order_id: order.id } %>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+<% else %>
+  <h1 class="heading text-center my-5">Your order list is empty.</h1>
+<% end %>
+</div>

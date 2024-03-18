@@ -1,7 +1,8 @@
 <%= link_to 'Back', products_path, class:"btn mx-3  b-text fs-4 text-decoration-underline" %>
-<h1 class="heading text-center mt-3 mb-5">My Orders</h1>
 <div class="container">
-    <% if current_user %>
+    <% if user_signed_in? %>
+    <h1 class="heading text-center mt-3 mb-5">My Orders</h1>
+    <% if current_user.orders.any? %>
         <% @orders.each do |order| %>
             <div class="card w-75 m-auto mb-5 shadow-none">
             <div class="card-header">
@@ -47,6 +48,9 @@
         <% end %>
     <% else %>
         <h1 class="heading text-center my-5">Your Order list is empty</h1>
+    <% end %>
+    <% else %>
+        <h1 class="heading text-center my-5">Login to see your orders..</h1>
     <% end %>
 
 </div>

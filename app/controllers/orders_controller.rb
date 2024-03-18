@@ -1,5 +1,7 @@
 class OrdersController < ApplicationController
     def show
-        @orders = current_user.orders.all.order("created_at   DESC")
+        if user_signed_in?
+            @orders = current_user.orders.all.order("created_at   DESC")
+        end
     end
 end

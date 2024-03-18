@@ -209,6 +209,7 @@ GEM
       actionpack (>= 5.2)
       activesupport (>= 5.2)
       sprockets (>= 3.0.0)
+    stripe (10.11.0)
     thor (1.3.1)
     tilt (2.3.0)
     timeout (0.4.1)
@@ -261,6 +262,7 @@ DEPENDENCIES
   sass-rails (>= 6)
   selenium-webdriver (>= 4.0.0.rc1)
   spring
+  stripe (~> 10)
   turbolinks (~> 5)
   tzinfo-data
   web-console (>= 4.1.0)

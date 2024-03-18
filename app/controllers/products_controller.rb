@@ -4,6 +4,17 @@ class ProductsController < ApplicationController
     before_action :restrict_customer, except: [:index, :show]
 
     def index
+        if (!session[:stripe_session_id].nil?)
+            key = session[:stripe_session_id]
+            payment = Stripe::Checkout::Session.retrieve(key)
+            if payment[:payment_status] == "paid"
+                current_user.cart_items.destroy_all
+                flash[:alert] = "Thanks for your order, Your Order has been placed successfully"
+            else
+                flash[:alert] = "Paymenmt cancelled by user"
+            end
+            session.delete(:stripe_session_id)
+        end
         @product = Product.all.order("created_at DESC")
     end
     def new

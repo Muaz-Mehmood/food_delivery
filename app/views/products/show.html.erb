@@ -6,13 +6,11 @@
             <div class="w-75 m-auto">
                 <%= image_tag(@product.image, class: "w-75 my-4 rounded-3") %><br>
                 <h5 class="p-price w-75"><%= number_to_currency(@product.price) %></h5>
-                <%# <% if current_user && current_user.customer? %>
-                  <%= form_with(model: @cart_item, url: add_to_cart_path(product_id: @product.id), local: true, class: "w-75") do |f| %>
-                    <%= f.hidden_field :product_id, value: @product.id %>
-                      <%= f.number_field :quantity, value: 1, min: 1, class: "qty form-control my-2" %>
-                      <%= f.submit "Add to cart", class: " add-crt-btn btn btn-dark border-0 form-control", "data-bs-toggle" => "modal", "data-bs-target" => "#addToCartModal" %>
-                  <% end %>
-                <%# <% end %> 
+                <%= form_with(model: @cart_item, url: add_to_cart_path(product_id: @product.id), local: true, class: "w-75") do |f| %>
+                  <%= f.hidden_field :product_id, value: @product.id %>
+                    <%= f.number_field :quantity, value: 1, min: 1, class: "qty form-control my-2" %>
+                    <%= f.submit "Add to cart", class: " add-crt-btn btn btn-dark border-0 form-control", "data-bs-toggle" => "modal", "data-bs-target" => "#addToCartModal" %>
+                <% end %>
 
                 <div class="modal fade" id="addToCartModal" tabindex="-1" aria-labelledby="addToCartModalLabel" aria-hidden="true">
                     <div class="modal-dialog">

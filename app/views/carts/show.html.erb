@@ -1,5 +1,6 @@
 <%= link_to 'Back', products_path, class:"btn mx-3  b-text fs-4 text-decoration-underline" %>
 <div class="container">
+  <% if user_signed_in? %>
 <% if @cart_items.any? %>
 <h1 class="heading text-center mt-3 mb-5">Your Shopping Cart</h1>
   <table class="table table-bordered text-center">
@@ -25,9 +26,12 @@
     </tbody>
   </table>
 
-  <p class="p-price">Total: <%= number_to_currency(@cart_items.sum { |item| item.quantity * item.product.price }) %></p>
-  <%= button_to "Checkout", checkout_path, class: "check-btn btn btn-dark border-0" %>
+  <h4 class="p-price my-4">Total: <%= number_to_currency(@cart_items.sum { |item| item.quantity * item.product.price }) %></h4>
+  <%= button_to "Checkout", checkout_path, method: :post, class: "check-btn btn btn-dark border-0" %>
 <% else %>
   <h1 class="heading text-center my-5">Your cart is empty.</h1>
+<% end %>
+<% else %>
+<h1 class="heading text-center my-5">Login first to see your cart.</h1>
 <% end %>
 </div>

@@ -61,3 +61,5 @@ gem 'bootstrap', '~> 5.0'
 
 gem 'jquery-rails'
 gem 'popper_js', '>= 2.0.7'
+
+gem 'stripe', '~> 10'

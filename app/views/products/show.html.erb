@@ -2,7 +2,7 @@
 <div class="container">
     <div class="row my-4">
         <div class="col p-3">
-            <h1 class="p-name"><%= @product.name %></h1>
+            <h1 class="p-name w-100"><%= @product.name %></h1>
             <div class="w-75 m-auto">
                 <%= image_tag(@product.image, class: "w-75 my-4 rounded-3") %><br>
                 <h5 class="p-price w-75"><%= number_to_currency(@product.price) %></h5>

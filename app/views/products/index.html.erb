@@ -1,5 +1,5 @@
 <div class="cover container-fluid d-flex">
-    <p class="w-75 m-auto">KHAO PIYO MOJ KRO</p>
+    <p class="w-75 m-auto">Savor the flavor</p>
 </div>
 
 <div class="index-head container-fluid d-flex pt-2 pb-2 mb-5">
@@ -18,7 +18,7 @@
                             <%= image_tag(product.image , style: "width: 100%; height: 200px;", class: "card-img-top")%>
                         <% end %>
                         <div class="card-body">
-                            <h5 class="card-title"><%= product.name %></h5>
+                            <h5 class="card-title"><%= truncate(product.name, length: 30) %></h5>
                             <p class="card-text"><%= truncate(product.description, :length => 75) %></p>
                             <div class="d-flex justify-content-between">
                                 <p class="p-price"><%= number_to_currency(product.price) %></p>

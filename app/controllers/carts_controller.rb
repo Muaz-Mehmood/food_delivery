@@ -26,24 +26,6 @@ class CartsController < ApplicationController
     end
   end
 
-  # def checkout
-  #   if current_user.cart_items.any?
-  #     @order = current_user.orders.create
-  #     @cart_items = current_user.cart_items
-
-  #     @cart_items.each do |cart_item|
-  #       order_item = @order.order_items.create(product: cart_item.product, quantity: cart_item.quantity)
-  #     end
-  #   else
-  #     redirect_to root_path
-  #   end
-
-  #   if @order.save
-  #     @cart_items.destroy_all
-  #     redirect_to root_path
-  #   end
-  # end
-
   def remove_from_cart
     cart_item = current_user.cart_items.find_by_id(params[:id])
     cart_item.destroy if cart_item
